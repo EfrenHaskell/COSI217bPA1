@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <header>
+            <h1>NoteBook</h1>
+            <a href="/"> Home </a>
+        </header>
+
+        <section class="right">
+            <h3> {{note_name}} </h3>
+            <p> {{note_contents}} </p>
+        </section>
+    </body>
+</html>
