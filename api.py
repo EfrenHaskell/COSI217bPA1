@@ -24,7 +24,7 @@ async def home_message():
 @app.get("/list")
 def list_notes():
     """
-
+    Get request returns list of all notes
     :return:
     """
     return new_notebook.notes()
@@ -32,15 +32,30 @@ def list_notes():
 
 @app.get("/find")
 def find_note(term: str):
+    """
+    Get request returns all notes that match search term
+    :param term:
+    :return:
+    """
     return {"term": term, "matching notes": [new_notebook.find(term)]}
 
 
 @app.get("/note/{name}")
 def return_note(name: str):
+    """
+    Get request returns note contents for note specified by name
+    :param name:
+    :return:
+    """
     return new_notebook.get_note(name)
 
 
 @app.post("/add")
 def add_note(new_note: NoteItem):
+    """
+    Post request to add new note
+    :param new_note:
+    :return:
+    """
     new_notebook.add(new_note.name, new_note.content)
     return "success"
